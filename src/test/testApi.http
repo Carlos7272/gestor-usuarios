@@ -1,0 +1,106 @@
+
+###  creacion de usuario
+POST http://localhost:8085/v1/user-manager/user
+Content-Type: application/json
+
+{
+  "full_name": "Victor Arias HH",
+  "email": "victor@gmail.com",
+  "password": "123456",
+  "roles": [
+    {
+      "name": "ROLE_USER",
+      "description": "can view all endpoint"
+    }
+  ]
+}
+
+
+###  creacion de otro usuario
+POST http://localhost:8085/v1/user-manager/user
+Content-Type: application/json
+
+{
+  "full_name": "Segundo Usuario",
+  "email": "nuevomail@gmail.com",
+  "password": "123456"
+}
+
+###  autenticacion para obtener token
+POST http://localhost:8085/v1/user-manager/authenticate
+Content-Type: application/json
+
+{
+  "full_name": "Victor Arias HH",
+  "password": "123456"
+}
+
+###  autenticacion del segundo usuario
+POST http://localhost:8085/v1/user-manager/authenticate
+Content-Type: application/json
+
+{
+  "full_name": "Segundo Usuario",
+  "password": "123456"
+}
+
+###  se obtienen todos los usuarios
+GET http://localhost:8085/v1/user-manager/user
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJST0xFUyI6IltST0xFX1VTRVJdIiwic3ViIjoiVmljdG9yIEFyaWFzIEhIIiwiaWF0IjoxNzQwNDQ5MzAyLCJleHAiOjE3NDA0NjczMDJ9.P2-1nTzfBb7bkdRUHjCoYOatIEv5iZvEVSHmc62YjW8
+Content-Type: application/json
+
+###  se obtiene un usuario
+GET http://localhost:8085/v1/user-manager/user/14
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJST0xFUyI6IltST0xFX1VTRVJdIiwic3ViIjoiVmljdG9yIEFyaWFzIEhIIiwiaWF0IjoxNzQwNDQ5MzAyLCJleHAiOjE3NDA0NjczMDJ9.P2-1nTzfBb7bkdRUHjCoYOatIEv5iZvEVSHmc62YjW8
+Content-Type: application/json
+
+###  se modifica un usuario
+PUT http://localhost:8085/v1/user-manager/user/5
+Content-Type: application/json
+
+{
+  "full_name": "Victor Arias Perez",
+  "email": "prueba@gmail.com"
+}
+
+###  se elimina un usuario
+DELETE http://localhost:8085/v1/user-manager/user/3
+Content-Type: application/json
+
+###  creacion de post
+POST http://localhost:8085/v1/user-manager/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJST0xFUyI6IltST0xFX1VTRVJdIiwic3ViIjoiVmljdG9yIEFyaWFzIEhIIiwiaWF0IjoxNzQwNDQ4MzE0LCJleHAiOjE3NDA0NjYzMTR9.-XwAkDLwD3zLQ2ihSLj04S8XD-qgZ6tfXk-x_wmeqpw
+Content-Type: application/json
+
+{
+  "user_name": "Victor Arias HH",
+  "title": "Victor Arias",
+  "content": "Victor Arias"
+}
+
+###  modificacion de post
+PUT http://localhost:8085/v1/user-manager/post/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJST0xFUyI6IltST0xFX1VTRVJdIiwic3ViIjoiVmljdG9yIEFyaWFzIEhIIiwiaWF0IjoxNzQwNDUwMDY1LCJleHAiOjE3NDA0NjgwNjV9.auWDTAzclhU-bp0P0sYiBOQxHCbSulGACW6mK20gQ7g
+Content-Type: application/json
+
+{
+  "user_name": "Victor Arias HH",
+  "title": "Title modificado 2",
+  "content": "Content modificado 2"
+}
+
+###  se obtienen todos los usuarios
+GET http://localhost:8085/v1/user-manager/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJST0xFUyI6IltST0xFX1VTRVJdIiwic3ViIjoiVmljdG9yIEFyaWFzIEhIIiwiaWF0IjoxNzQwNDQ5NzY3LCJleHAiOjE3NDA0Njc3Njd9.6BtdGFJq9FuFzkYveE_ibftsOc3j6mrbt-eK4KmrGCU
+Content-Type: application/json
+
+###  se obtiene un usuario
+GET http://localhost:8085/v1/user-manager/user/14
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJST0xFUyI6IltST0xFX1VTRVJdIiwic3ViIjoiVmljdG9yIEFyaWFzIEhIIiwiaWF0IjoxNzQwNDQ5MzAyLCJleHAiOjE3NDA0NjczMDJ9.P2-1nTzfBb7bkdRUHjCoYOatIEv5iZvEVSHmc62YjW8
+Content-Type: application/json
+
+###  se elimina un usuario
+DELETE http://localhost:8085/v1/user-manager/post/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJST0xFUyI6IltST0xFX1VTRVJdIiwic3ViIjoiVmljdG9yIEFyaWFzIEhIIiwiaWF0IjoxNzQwNDUwMDY1LCJleHAiOjE3NDA0NjgwNjV9.auWDTAzclhU-bp0P0sYiBOQxHCbSulGACW6mK20gQ7g
+Content-Type: application/json
+
